@@ -11,8 +11,8 @@ set :use_sudo, false
 set :deploy_via, :remote_cache
 set :deploy_to, '/deploy'
 
-set :linked_files, %w{.env config/master.key}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets tmp/sessions bundle db}
+set :linked_files, %w{.env config/master.key db/production.sqlite3}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets tmp/sessions bundle}
 set :keep_releases, 5
 set :conditionally_migrate, true
 
