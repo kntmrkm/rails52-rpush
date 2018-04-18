@@ -6,6 +6,11 @@ set :repo_url, "git@github.com:kntmrkm/rails52-rpush.git"
 
 set :log_level, :debug
 
+set :pty, false
+set :use_sudo, false
+set :deploy_via, :remote_cache
+set :deploy_to, '/deploy'
+
 set :linked_files, %w{.env config/master.key}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets tmp/sessions bundle}
 set :keep_releases, 5
@@ -43,6 +48,7 @@ namespace :rpush do
   end
 end
 
+before :deploy,   'deploy:upload'
 after  :deploy,    'rpush:start'
 
 # Default branch is :master
